@@ -1,0 +1,15 @@
+python /home/kamizuka/jasmine-imagesim/bin/mkimage.py --pd ./02_imagesim/ --starplate star_plate.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./03_result/
+
+in 03_result
+$ python ace_analysis.py
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+0.7912244484127786
+0.790065255868635
+--> std(7.1s)/std(all) = 0.79
+--> std(all) = 0.34 if std(7.1s) = 0.276.
+
+copy star_plate.csv from 04 to 05.
+set acex_std and acey_std to 0.34 in 05.
+
+python /home/kamizuka/jasmine-imagesim/bin/mkimage.py --pd ./05_imagesim/ --starplate star_plate.csv --det det.json --tel tel.json  --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./06_result/
