@@ -1,0 +1,5 @@
+In 01_params, starplate csv files are created by 01_params/01_MakingSPcsv.ipynb.
+In 02_results, the created data with gaussian stars and the analysis results on them are stored.
+
+The data are created by:
+ls 01_params/spcsv_20_1920_10_20_1*.csv > tmp.lst; while read file; do python /home/kamizuka/jasmine-imagesim/bin/mkimage.py --pd ./01_params/ --starplate `echo ${file} | sed -e "s/01_params\///g"` --det det.json --tel tel.json  --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od `echo ${file} | sed -e "s/01_params/02_results/g" -e "s/\.csv//g"`;  done < tmp.lst; rm tmp.lst;
