@@ -3,3 +3,26 @@ In 02_results, the created data with gaussian stars and the analysis results on 
 
 The data are created by:
 ls 01_params/spcsv_20_1920_10_20_1*.csv > tmp.lst; while read file; do python /home/kamizuka/jasmine-imagesim/bin/mkimage.py --pd ./01_params/ --starplate `echo ${file} | sed -e "s/01_params\///g"` --det det.json --tel tel.json  --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od `echo ${file} | sed -e "s/01_params/02_results/g" -e "s/\.csv//g"`;  done < tmp.lst; rm tmp.lst;
+
+./mkimage.py : modified version of the mkimage.py which produces data with various magnitude settings in a shorter time than the original mkimage.py.
+./mkimage2.py: modified version of ./mkimage.py which can handle gaussian ACE.
+./mkimage3.py: modified version of ./mkimage2.py which can handle detector offset.
+
+02_results_2     : Results using ctl.json. Gaussian stars (basically same as 02_results).
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results_2/
+02_results_2_ctl2: Results using ctl2.json. Real PSF stars w/o any other effects.
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_2_ctl2/
+02_results_2_ctl3: Results using ctl3.json. Real PSF + 1% flat flucutuaion (incl. intrapix flat).
+  Command: python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl3.json --format platefits --overwrite --od ./02_results_2_ctl3/
+02_results_2_ctl4: Results using ctl4.json. Real PSF + 1% flat + 276-mas gaussian ACE.
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl4.json --format platefits --overwrite --od ./02_results_2_ctl4/
+02_results_2_ctl5: Results using ctl5.json. Real PSF + 1% flat + 276-mas ACE + real WFE (w/o detector offset).
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl5.json --format platefits --overwrite --od ./02_results_2_ctl5/
+02_results_2_ctl6: Results using ctl6.json. Same as ctl5, but dtace is changed to a larger value.
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl6.json --format platefits --overwrite --od ./02_results_2_ctl6/
+02_results_2_ctl7: Results using ctl7.json. Real PSF + 1% flat + real WFE (w/o detector offset).
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl7.json --format platefits --overwrite --od ./02_results_2_ctl7/
+02_results_2_ctl8: Results using ctl8.json. Real PSF + real WFE (w/o detector offset).
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl8.json --format platefits --overwrite --od ./02_results_2_ctl8/
+02_results_2_ctl8_det2: Results using ctl8.json and det2.json. Real PSF + real WFE + detector offset.
+  Command: python ./mkimage3.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det2.json --tel tel.json --ace ace_001.json --ctl ctl8.json --format platefits --overwrite --od ./02_results_2_ctl8_det2/
