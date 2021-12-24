@@ -52,6 +52,6 @@
   "val": 3},
 "location": {
   "title": "Parameters defining the detector location on the telescope focal plane.",
-  "offset_x": {"val": [1.65, 0, 0, 0], "title": "Offset in x direction in mm."},
-  "offset_y": {"val": [1.65, 0, 0, 0], "title": "Offset in y direction in mm."}}
+  "offset_x": {"val": 1.65, "title": "Offset in x direction in mm."},
+  "offset_y": {"val": 1.65, "title": "Offset in y direction in mm."}}
 }
