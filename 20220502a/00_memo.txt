@@ -28,11 +28,16 @@ Preparing parameter files.
         Nplate=11; tplate=12.5; Rv=3.1; J-H=2.0; alpha=0.75;
 
     det.json:
-      pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
-      QE=0.8@0.9-1.6um; spixdim=32; Nmargin=10; interpix=0.01; intrapix="pixsim/data/intrapix/intrav[x|y].csv";
-      readparams:
-        fsmpl=200e3; ncol_ch=123; nrow_ch=1968; npix_pre=0; npix_post=0; t_overhead=0.1;
-      gain=3; location=1.65, 1.65 mm
+      QE is fixed to 0.8. The wavelength range is varied as below:
+        det0.json: 0.9-1.6um
+        det1.json: 1.0-1.6um
+
+      Other parameters are:
+        pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
+        spixdim=32; Nmargin=10; interpix=0.01; intrapix="pixsim/data/intrapix/intrav[x|y].csv";
+        readparams:
+          fsmpl=200e3; ncol_ch=123; nrow_ch=1968; npix_pre=0; npix_post=0; t_overhead=0.1;
+        gain=3; location=1.65, 1.65 mm
 
     tel.json:
       Basic parameters are:
