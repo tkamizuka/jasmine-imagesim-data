@@ -29,8 +29,8 @@ Preparing parameter files.
 
     det.json:
       QE is fixed to 0.8. The wavelength range is varied as below:
-        det0.json: 0.9-1.6um
-        det1.json: 1.0-1.6um
+        det00.json: 0.9-1.6um
+        det10.json: 1.0-1.6um
 
       Other parameters are:
         pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
