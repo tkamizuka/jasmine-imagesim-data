@@ -13,28 +13,31 @@ Preparing parameter files.
 
   modified some parameters.
     ctl.json:
-             wfe     psf   ace inter intra
-     ctl0: dummy    real none  false false
-     ctl1: dummy    real gauss false false
-     ctl2: dummy    real gauss true  true
-     ctl3: fringe37 real gauss true  true
-     Other parameters are:
-       M=6320; CellPix=13; fN=520; PixNum:9; dx=0; dy=0; GaussPSFfwhm=0.77(=1.028x1.3um/36cm in arcsec; but not needed..);
-       WFEcontrol.fringe37_filename='photonsim/data/FringeZernike_2D-s1.csv';
-       WFEcontrol.reference_wl=1.4; ACEcontrol.dtace=15e-2; ACEcontrol.tace=360;
-       ACEcontrol.acex_std=0.276; ACEcontrol.acey_std=0.276; ACEcontrol.acex_seed=1; ACEcontrol.acey_seed=2;
-       Nplate=11; tplate=12.5; Rv=3.1; J-H=2.0; alpha=0.75;
+              wfe     psf  ace  inter intra
+      ctl0: dummy    real none  false false
+      ctl1: dummy    real gauss false false
+      ctl2: dummy    real gauss true  true
+      ctl3: fringe37 real gauss true  true
+
+      Other parameters are:
+        M=6320; CellPix=13; fN=520; PixNum:9; dx=0; dy=0;
+        GaussPSFfwhm=0.77(=1.028x1.3um/36cm in arcsec; but not needed..);
+        WFEcontrol.fringe37_filename='photonsim/data/FringeZernike_2D-s1.csv';
+        WFEcontrol.reference_wl=1.4; ACEcontrol.dtace=15e-2; ACEcontrol.tace=360;
+        ACEcontrol.acex_std=0.276; ACEcontrol.acey_std=0.276; ACEcontrol.acex_seed=1; ACEcontrol.acey_seed=2;
+        Nplate=11; tplate=12.5; Rv=3.1; J-H=2.0; alpha=0.75;
 
     det.json:
-       pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
-       QE=0.8@0.9-1.6um; spixdim=32; Nmargin=10; interpix=0.01; intrapix="pixsim/data/intrapix/intrav[x|y].csv";
-       readparams: fsmpl=200e3; ncol_ch=123; nrow_ch=1968; npix_pre=0; npix_post=0; t_overhead=0.1;
-       gain=3; location=1.65, 1.65 mm
+      pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
+      QE=0.8@0.9-1.6um; spixdim=32; Nmargin=10; interpix=0.01; intrapix="pixsim/data/intrapix/intrav[x|y].csv";
+      readparams:
+        fsmpl=200e3; ncol_ch=123; nrow_ch=1968; npix_pre=0; npix_post=0; t_overhead=0.1;
+      gain=3; location=1.65, 1.65 mm
 
     tel.json:
-       Basic parameters are:
-         EPD=360; Cobs=0.39(=14cm/36cm); Spider.thickness=5; Eopt=0.83 between 0.9 to 1.6 um;
-       EFL is varied:
-         tel0: 4860
-         tel1: 4574
-         tel2: 5146
+      Basic parameters are:
+        EPD=360; Cobs=0.35; Spider.thickness=5; Eopt=0.83 between 0.9 to 1.6 um;
+      EFL is varied:
+        tel0: 4860
+        tel1: 4574
+        tel2: 5146
