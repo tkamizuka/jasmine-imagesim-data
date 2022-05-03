@@ -1,9 +1,8 @@
 Simulation and ePSF analysis with updated parameters.
 
 Current imagesim version: develop branch @ commit 6dcc9a.
-
  
-Preparing parameter files.
+Preparing parameter files ===============================================
   mkdir 01_params
   For details about starplate data, see 01_MakingSPcsv.ipynb.
 
@@ -52,3 +51,11 @@ Preparing parameter files.
         tel10: 360 4107.692
         tel11: 360 4369.231
         tel12: 360 4630.769
+
+Modifying mkimage.py ==========================================================================
+  cp ~/jasmine-imagesim/bin/mkimage.py ./
+  vi mkimage.py
+    modified to simulate multiple magnitude data.
+
+Simulation ====================================================================================
+
