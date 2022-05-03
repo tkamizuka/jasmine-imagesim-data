@@ -73,11 +73,11 @@ if __name__ == '__main__':
         control_params, telescope, detector)
     theta_full, pixdim, Npixcube = init_pix(
         control_params, detector, acex, acey, detpix_scale, args['--dft'])
-    variability = Variability.from_json(filenames['varjson'])
-    tday = get_tday(control_params, detector)
-
     check_ace_length(Nts_per_plate, control_params, theta_full)
-    plot_variability(variability, filenames['starplate'], tday)
+    if args['--var']:
+        variability = Variability.from_json(filenames['varjson'])
+        tday = get_tday(control_params, detector)
+        plot_variability(variability, filenames['starplate'], tday)
 
     if control_params.effect.ace == 'gauss':
         psf = apply_gaussian(psf, acex_std, acey_std, fp_scale)
