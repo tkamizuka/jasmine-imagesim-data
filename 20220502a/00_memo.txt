@@ -1,6 +1,7 @@
 Simulation and ePSF analysis with updated parameters.
 
-Current imagesim version: develop branch @ commit 6dcc9a.
+Current imagesim version:
+  fortest20220502a branch @ commit d8567fd1
  
 Preparing parameter files ===============================================
   mkdir 01_params
@@ -8,7 +9,7 @@ Preparing parameter files ===============================================
 
   cp ~/jasmine-imagesim/params/templates/*.json ./01_params/
   delete unnecessary files.
-    rm ace*.json drift.json spc.json src.json variability.json wfe.json
+    rm ace_002.json ace_152.json drift.json spc.json src.json variability.json wfe.json
 
   modified some parameters.
     ctl.json:
@@ -58,4 +59,15 @@ Modifying mkimage.py ===========================================================
     modified to simulate multiple magnitude data.
 
 Simulation ====================================================================================
+
+02_results_ctl0_det00_tel00:
+  Settings:
+    Real PSF without ACE/IntrapixFlat/InterpixFlat.
+    EPD 340 mm; EFL 3892.308 mm; Wavelength: 0.9-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det00.json --tel tel00.json --ace ace_001.json --ctl ctl0.json --format platefits --overwrite --od ./02_results_ctl0_det00_tel00/
+
+
+
 
