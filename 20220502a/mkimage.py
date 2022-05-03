@@ -130,8 +130,9 @@ if __name__ == '__main__':
             for i_mag in range(0,6):
                 pixar = normalize_pixar(control_params, pixar_org, mag, Nts_per_plate)
 
-                if varsw:
-                    pixar = add_varability(pixar, injlc_iplate)
+                if args['--var']:
+                    if varsw:
+                        pixar = add_varability(pixar, injlc_iplate)
 
                 pixar = add_dark_current(control_params, detector, pixar)
                 integrated = integrate(pixar, x0_global, y0_global, control_params.tplate,
