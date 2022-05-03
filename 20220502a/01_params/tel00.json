@@ -1,7 +1,7 @@
 {
 "EPD":{
  "title": "Entrance pupil diameter (mm)",
- "val"   :360 },
+ "val"   :340 },
 "Cobs":{
  "title": "Central obscuration ratio",
  "val" :0.35},
@@ -15,5 +15,5 @@
   "efficiency": {"val": [0.83, 0.83], "title": "Efficiencies."}},
 "EFL":{
  "title": "Effective focal length (mm)",
- "val": 4574.0}
+ "val": 3892.308}
 }

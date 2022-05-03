@@ -41,8 +41,14 @@ Preparing parameter files.
 
     tel.json:
       Basic parameters are:
-        EPD=360; Cobs=0.35; Spider.thickness=5; Eopt=0.83 between 0.9 to 1.6 um;
-      EFL is varied:
-        tel0: 4860
-        tel1: 4574
-        tel2: 5146
+        Cobs=0.35; Spider.thickness=5;
+        Eopt=0.83 between 0.9 to 1.6 um;
+
+      EPD and EFL are varied as below:
+               EPD    EFL
+        tel00: 340 3892.308
+        tel01: 340 4123.077
+        tel02: 340 4369.231
+        tel10: 360 4107.692
+        tel11: 360 4369.231
+        tel12: 360 4630.769
