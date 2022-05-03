@@ -1,7 +1,7 @@
 Simulation and ePSF analysis with updated parameters.
 
 Current imagesim version:
-  fortest20220502a branch @ commit 210006b6
+  fortest20220502a branch @ commit 4ca2cdff
  
 Preparing parameter files ===============================================
   mkdir 01_params
