@@ -90,7 +90,7 @@ if __name__ == '__main__':
     # Making data around each star.
     for i_star, line in enumerate(table_starplate):
         print('StarID: {}'.format(line['star index']))
-        mag = line['Hwmag']
+        #mag = line['Hwmag']
         xc_local, yc_local, x0_global, y0_global, xc_global, yc_global = set_positions(
             line, Npixcube)
         interpix_local = make_local_flat(
@@ -129,7 +129,7 @@ if __name__ == '__main__':
 
             mags = np.arange(12.0, 15.0, 0.5)
             for i_mag in range(0,6):
-                pixar = normalize_pixar(control_params, pixar_org, mag, Nts_per_plate)
+                pixar = normalize_pixar(control_params, pixar_org, mags[i_mag], Nts_per_plate)
 
                 if args['--var']:
                     if varsw:
