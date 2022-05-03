@@ -80,7 +80,8 @@ if __name__ == '__main__':
         plot_variability(variability, filenames['starplate'], tday)
 
     if control_params.effect.ace == 'gauss':
-        psf = apply_gaussian(psf, acex_std, acey_std, fp_scale)
+        psf = apply_gaussian(psf, control_params.ace_control['acex_std'],\
+                             control_params.ace_control['acey_std'], fp_scale)
 
     uniform_flat_interpix, uniform_flat_intrapix = uniform_flat(detector)
     pixcube_global = init_images(control_params, detector)
