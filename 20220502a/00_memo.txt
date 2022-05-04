@@ -42,16 +42,16 @@ Preparing parameter files ===============================================
     tel.json:
       Basic parameters are:
         Cobs=0.35; Spider.thickness=5;
-        Eopt=0.83 between 0.9 to 1.6 um;
+        Eopt=0.83 between 0.9 or 1.0 to 1.6 um;
 
       EPD and EFL are varied as below:
-               EPD    EFL
-        tel00: 340 3892.308
-        tel01: 340 4123.077
-        tel02: 340 4369.231
-        tel10: 360 4107.692
-        tel11: 360 4369.231
-        tel12: 360 4630.769
+               EPD    EFL      WL
+        tel00: 340 3892.308 0.9-1.6
+        tel01: 340 4123.077 0.9-1.6
+        tel02: 340 4369.231 0.9-1.6
+        tel10: 360 4107.692 1.0-1.6
+        tel11: 360 4369.231 1.0-1.6 
+        tel12: 360 4630.769 1.0-1.6
 
 Modifying mkimage.py ==========================================================================
   cp ~/jasmine-imagesim/bin/mkimage.py ./
@@ -83,3 +83,20 @@ Simulation =====================================================================
 
   Command:
     python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det00.json --tel tel00.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det00_tel00/
+
+02_results_ctl2_det00_tel02:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 340 mm; EFL 4369.231 mm; Wavelength: 0.9-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det00.json --tel tel02.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det00_tel02/
+
+
+02_results_ctl2_det10_tel10:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4107.692 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10/
