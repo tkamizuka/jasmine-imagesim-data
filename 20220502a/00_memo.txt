@@ -100,3 +100,11 @@ Simulation =====================================================================
 
   Command:
     python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10/
+
+02_results_ctl2_det10_tel12:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4630.769 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det10.json --tel tel12.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel12/
