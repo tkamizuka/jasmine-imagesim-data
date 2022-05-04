@@ -11,7 +11,7 @@
   "thickness": {"val": 5, "title": "Spider thickness in mm."}},
 "Eopt":{
   "title": "Spectral efficiency of the optics with filters.",
-  "wavelength": {"val": [0.9, 1.6], "title": "Wavelengths in micron."},
+  "wavelength": {"val": [1.0, 1.6], "title": "Wavelengths in micron."},
   "efficiency": {"val": [0.83, 0.83], "title": "Efficiencies."}},
 "EFL":{
  "title": "Effective focal length (mm)",
