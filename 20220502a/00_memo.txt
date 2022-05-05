@@ -84,6 +84,17 @@ Simulation =====================================================================
   Command:
     python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det00.json --tel tel00.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det00_tel00/
 
+02_results_ctl0_det00_tel02:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 340 mm; EFL 4369.231 mm; Wavelength: 0.9-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det00.json --tel tel02.json --ace ace_001.json --ctl ctl0.json --format platefits --overwrite --od ./02_results_ctl0_det00_tel02/
+
+
+
+
 02_results_ctl2_det00_tel02:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
@@ -108,3 +119,13 @@ Simulation =====================================================================
 
   Command:
     python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det10.json --tel tel12.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel12/
+
+
+03_results_ctl0_det00_tel00:
+  Settings:
+    Real PSF without ACE/IntrapixFlat/InterpixFlat.
+    EPD 340 mm; EFL 3892.308 mm; Wavelength: 0.9-1.6 um.
+    Another starplate csv.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1920_11_21_12.0.csv --det det00.json --tel tel00.json --ace ace_001.json --ctl ctl0.json --format platefits --overwrite --od ./03_results_ctl0_det00_tel00/
