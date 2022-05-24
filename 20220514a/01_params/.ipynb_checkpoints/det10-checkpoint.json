@@ -1,0 +1,57 @@
+{
+"pixsize": {
+  "title": "Pixel size (micron).",
+  "val"  : 10.0 },
+"Npix":{
+  "title": "Number of pixels on a side.",
+  "val"  : 1968 },
+"readnoise": {
+  "title": "Read out noise (e-).",
+  "val"  : 15 },
+"Idark":{
+  "title": "Dark current w stray light (e-/sec/pix).",
+  "val"  :  24.5 },
+"Fullwell": {
+  "title": "Full well (e-).",
+  "val"  : 150000},
+"QE": {
+  "title": "Spectral distribution of quantum efficiency (W?? in um; V?? QE value).",
+  "wavelength": {"val": [1.00000, 1.00835, 1.03963, 1.13390, 1.20000, 1.22818, 1.32245, 1.40000, 1.41673, 1.51100, 1.6], "title": "Wavelength in micron."},
+  "qe_value": {"val": [0.81000, 0.81000, 0.80000, 0.81000, 0.81000, 0.81000, 0.78000, 0.76000, 0.76000, 0.73000, 0.71000], "title": "QE values." }},
+"spixdim": {
+  "title": "Dimensions of the subpixel grid.",
+  "val": [32, 32]},
+"Nmargin": {
+  "title": "Number of margin pixels for simpix calculation.",
+  "val": 10},
+"interpix": {
+  "title": "Parameters of the interpixel flat.",
+  "stddev": {"val": 0.01, "title": "standard deviation of the interpixel flat."}},
+"intrapix": {
+  "title": "Information about files describing intrapixel pattern.",
+  "file_x": {
+    "val": "pixsim/data/intrapix/intravx.csv",
+    "title": "Path to the definiton file of the intrapix flat pattern along with the x-axis."},
+  "file_y": {
+    "val": "pixsim/data/intrapix/intravy.csv",
+    "title": "Path to the definiton file of the intrapix flat pattern along with the y-axis."}},
+"persistence": {
+  "title": "Persistence parameters.",
+  "tau": {"val": [1, 10, 100, 1000, 10000], "title": "Detrapping times in second."},
+  "rho": {"val": [1e-3, 1.5e-3, 1.5e-3, 2e-3, 3e-3], "title": "Trapping fractions."}},
+"readparams": {
+  "title": "Parameters related to the reset/read operation.",
+  "fsmpl"     : {"val": 200e3, "title": "Sampling frequency in Hz."},
+  "ncol_ch"   : {"val": 123, "title": "Num. of col. in one ch."},
+  "nrow_ch"   : {"val":1968, "title": "Num. of row in one ch."},
+  "npix_pre"  : {"val":   0, "title": "Npix before reading each row."},
+  "npix_post" : {"val":   0, "title": "Npix after reading each row."},
+  "t_overhead": {"val": 0.1, "title": "Overhead time between reset and the 1st read in sec."}},
+"gain": {
+  "title": "Conversion gain in e/adu.",
+  "val": 3},
+"location": {
+  "title": "Parameters defining the detector location on the telescope focal plane.",
+  "offset_x": {"val": 1.65, "title": "Offset in x direction in mm."},
+  "offset_y": {"val": 1.65, "title": "Offset in y direction in mm."}}
+}

@@ -1,0 +1,86 @@
+Simulation and ePSF analysis with updated parameters (2nd trial).
+
+Current imagesim version:
+  fortest20220514a branch @ commit 397585
+
+Current telescope_baseline version:
+  develop branch @ 57b113 
+ 
+Preparing parameter files ===============================================
+  mkdir 01_params
+  For details about starplate data, see 01_MakingSPcsv.ipynb.
+  For details about optical efficiency, see 02_CalcEfficiencies.ipynb.
+
+  cp ~/jasmine-imagesim/params/templates/*.json ./01_params/
+  delete unnecessary files.
+    rm ace_002.json ace_152.json drift.json spc.json src.json variability.json wfe.json
+
+  modified some parameters.
+    ctl.json:
+              wfe     psf  ace  inter intra
+      ctl0: dummy    real none  false false
+      ctl1: dummy    real gauss false false
+      ctl2: dummy    real gauss true  true
+      ctl3: fringe37 real gauss true  true
+
+      Other parameters are:
+        M=5680; CellPix=13; fN=520; PixNum:9; dx=0; dy=0;
+        GaussPSFfwhm=0.77(=1.028x1.3um/36cm in arcsec; but not needed..);
+        WFEcontrol.fringe37_filename='photonsim/data/FringeZernike_2D-s1.csv';
+        WFEcontrol.reference_wl=1.4; ACEcontrol.dtace=15e-2; ACEcontrol.tace=360;
+        ACEcontrol.acex_std=0.300; ACEcontrol.acey_std=0.300; ACEcontrol.acex_seed=1; ACEcontrol.acey_seed=2;
+        Nplate=11; tplate=12.5; Rv=3.1; J-H=2.0; alpha=0.75;
+
+    det.json:
+      QE modified to the values in ./01_params/qe_efficiency???.dat.
+      Both data are basically the same, but the wavelength grid is different.
+      Also see ./01_Params/02_CalcEfficiencies.ipynb.
+        det00.json is for the simulation at 0.9-1.6 um.
+        det10.json is for the simulation at 1.0-1.6 um.
+
+      Other parameters are:
+        pixsize=10.0; Npix=1968; readnoise=15; Dark+StrayLight=24.5; FullWell=150000;
+        spixdim=32; Nmargin=10; interpix=0.01; intrapix="pixsim/data/intrapix/intrav[x|y].csv";
+        readparams:
+          fsmpl=200e3; ncol_ch=123; nrow_ch=1968; npix_pre=0; npix_post=0; t_overhead=0.1;
+        gain=3; location=1.65, 1.65 mm
+
+    tel.json:
+      Basic parameters are:
+        Cobs=0.35; Spider.thickness=5;
+        Eopt values are set to those in ./01_params/opt_efficiency???.dat
+          Both data are basically the same, but the wavelength grids are different.
+          Also see ./01_Params/02_CalcEfficiencies.ipynb.
+            tel0?: for simulation in 0.9-1.6 um.
+            tel1?: for simulation in 1.0-1.6 um
+
+      EPD and EFL are varied as below:
+               EPD  EFL   WL
+        tel00: 340 4369 0.9-1.6 (for details see above)
+        tel10: 360 4369 1.0-1.6 (for details see above)
+
+Modifying mkimage.py ==========================================================================
+  cp ~/jasmine-imagesim/bin/mkimage.py ./
+  vi mkimage.py
+    modified to simulate multiple magnitude data.
+    (same as ../20220502a/mkimage.py)
+
+Simulation ====================================================================================
+
+02_results_ctl2_det00_tel00:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 340 mm; EFL 4369 mm; Wavelength: 0.9-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det00.json --tel tel00.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det00_tel00/
+
+
+02_results_ctl2_det10_tel10:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10/
+
