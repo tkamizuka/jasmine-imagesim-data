@@ -7,6 +7,7 @@ ls 01_params/spcsv_20_1920_10_20_1*.csv > tmp.lst; while read file; do python /h
 ./mkimage.py : modified version of the mkimage.py which produces data with various magnitude settings in a shorter time than the original mkimage.py.
 ./mkimage2.py: modified version of ./mkimage.py which can handle gaussian ACE.
 ./mkimage3.py: modified version of ./mkimage2.py which can handle detector offset.
+./mkimage4.py: modified version of ./mkimage3.py which does not omit tilt term.
 
 02_results_2     : Results using ctl.json. Gaussian stars (basically same as 02_results).
   Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results_2/
@@ -37,3 +38,15 @@ ls 01_params/spcsv_20_1920_10_20_1*.csv > tmp.lst; while read file; do python /h
 
 02_results_2_ctl5_det2: Results using ctl5.json and det2.json Real PSF + 1% flat + 276-mas ACE + real WFE + det. offset.
   Command: python ./mkimage3.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det2.json --tel tel.json --ace ace_001.json --ctl ctl5.json --format platefits --overwrite --od ./02_results_2_ctl5_det2/
+
+02_results_2_ctl9: Results using ctl9.json. Real PSF + 1% flat + 276-mas gaussian ACE.
+  Command: python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det2.json --tel tel.json --ace ace_001.json --ctl ctl9.json --format platefits --overwrite --od ./02_results_2_ctl9/
+
+02_results_2_ctl8_det2_wtilt: Results using ctl8.json and det2.json. Real PSF + real WFE (incl. tilt) + detector offset.
+  Command: python ./mkimage4.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det2.json --tel tel.json --ace ace_001.json --ctl ctl8.json --format platefits --overwrite --od ./02_results_2_ctl8_det2_wtilt/
+
+02_results_2_ctl2_det3: Results using ctl2.json and det3.json. Real PSF stars w/o any other effects. Read noise and dark are set to 0.
+  Command: python ./mkimage4.py --pd ./01_params/ --starplate spcsv_20_1920_10_20_12.0.csv --det det3.json --tel tel.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_2_ctl2_det3/
+
+Test command:
+  python ./mkimage3.py --pd ./01_params/ --starplate tmp.csv --det det2.json --tel tel.json --ace ace_001.json --ctl ctl5.json --format platefits --overwrite --od ./tmp/

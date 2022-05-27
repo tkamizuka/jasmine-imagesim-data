@@ -1,0 +1,8 @@
+{
+    "linear":{
+	"drift_velocity": 0.0015,
+	"drift_azimuth": 0.75
+    }   
+}
+
+    
