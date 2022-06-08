@@ -60,16 +60,16 @@
   "title": "ACE simulation control parameters.",
   "dtace":  {
     "title": "Timestep of ACE simulation in sec.",
-    "val": 15e-2},
+    "val": 150e-6},
   "tace":   {
     "title": "Time range of ACE simulation in sec (to be adjusted).",
-    "val": 360},
+    "val": 3600},
   "acex_std": {
     "title": "standard deviation of ACE along with X-axis (arcsec; gauss/real mode).",
-    "val": 0.300},
+    "val": 0.345},
   "acey_std": {
     "title": "standard deviation of ACE along with Y-axis (arcsec; gauss/real mode).",
-    "val": 0.300},
+    "val": 0.345},
   "acex_seed": {
     "title": "random number seed for ACE along with X axis (for real mode).",
     "val": 1},

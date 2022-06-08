@@ -94,6 +94,15 @@ Modifying mkimage.py ===========================================================
 
 Simulation ====================================================================================
 
+02_results_ctl0_det10_tel10:
+  Settings:
+    Real PSF. No ACE, No Flat.
+    EPD 360 mm; EFL 4369 mm; Wavelength 1.0-1.6 um.
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl0.json --format platefits --overwrite --od ./02_results_ctl0_det10_tel10/
+
+-----
+
 02_results_ctl2_det00_tel00:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
@@ -124,7 +133,6 @@ Simulation =====================================================================
 
 -----
 
-(not yet)
 02_results_ctl2_det10_tel10a:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
@@ -136,7 +144,6 @@ Simulation =====================================================================
 
 -----
 
-(not yet)
 02_results_ctl2_det10_tel10b:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
@@ -144,6 +151,67 @@ Simulation =====================================================================
 
   Command:
     python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10b.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10b/
+
+-----
+
+02_results_ctl2_det10_tel10c:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369*1.5 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10c.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10c/
+
+-----
+(not yet)
+02_results_ctl2_det10_tel10d:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369*2 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10d.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10d/
+
+-----
+
+02_results_ctl2_det10_tel10e:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369/1.5 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10e.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10e/
+
+-----
+(not yet)
+02_results_ctl2_det10_tel10f:
+  Settings:
+    Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369/2 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10f.json --ace ace_001.json --ctl ctl2.json --format platefits --overwrite --od ./02_results_ctl2_det10_tel10f/
+
+-----
+(not yet)
+02_results_ctl4_det10_tel10:
+  Settings:
+    Real PSF, real ACE, IntrapixFlat, and InterpixFlat.
+    EPD 360 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl4.json --format platefits --overwrite --od ./02_results_ctl4_det10_tel10/
+
+-----
+(not yet)
+02_results_ctl4_det10_tel11:
+  Settings:
+    Real PSF, real ACE, IntrapixFlat, and InterpixFlat.
+    EPD 340 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel11.json --ace ace_001.json --ctl ctl4.json --format platefits --overwrite --od ./02_results_ctl4_det10_tel11/
+
 
 -----
 
@@ -158,7 +226,6 @@ Simulation =====================================================================
 
 -----
 
-(not yet)
 02_results_ctl6_det10_tel10:
   Settings:
     Real PSF, IntrapixFlat, and InterpixFlat.
@@ -169,7 +236,6 @@ Simulation =====================================================================
 
 -----
 
-(not yet)
 02_results_ctl7_det10_tel10:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat.
@@ -181,7 +247,6 @@ Simulation =====================================================================
 
 -----
 
-(not yet)
 02_results_ctl2_det11_tel10:
   Settings:
     Real PSF, gaussian ACE, IntrapixFlat, and InterpixFlat, 2% interpix..
