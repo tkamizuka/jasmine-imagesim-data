@@ -27,6 +27,7 @@ Preparing parameter files ===============================================
       ctl6: dummy    real none  true  true
       ctl7: dummy    real gauss false true  (ace std: 300 mas)
       ctl8: dummy    real real_no_lag true true
+      ctl9: dummy    real real_no_lag false true
 
       Other parameters are:
         M=5680; CellPix=13; fN=520; PixNum:9; dx=0; dy=0;
@@ -212,6 +213,16 @@ Simulation =====================================================================
 
   Command:
     python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --acex ./02_results_ctl4_det10_tel10/aceX.fits --acey ./02_results_ctl4_det10_tel10/aceY.fits --ctl ctl8.json --format platefits --overwrite --od ./02_results_ctl8_det10_tel10/
+    
+-----
+
+02_results_ctl9_det10_tel10:
+  Settings:
+    Real PSF, real ACE (but no lag between the top and bottom regions), and IntrapixFlat. No InterpixFlat.
+    EPD 360 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --acex ./02_results_ctl4_det10_tel10/aceX.fits --acey ./02_results_ctl4_det10_tel10/aceY.fits --ctl ctl9.json --format platefits --overwrite --od ./02_results_ctl9_det10_tel10/
 
 -----
 (not yet)
@@ -231,7 +242,16 @@ Simulation =====================================================================
     EPD 340 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
 
   Command:
-    python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel11.json --ace ace_001.json --ctl ctl8.json --format platefits --overwrite --od ./02_results_ctl8_det10_tel11/
+    python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel11.json --ace ace_001.json --acex ./02_results_ctl4_det10_tel10/aceX.fits --acey ./02_results_ctl4_det10_tel10/aceY.fits --ctl ctl8.json --format platefits --overwrite --od ./02_results_ctl8_det10_tel11/
+-----
+
+02_results_ctl9_det10_tel11:
+  Settings:
+    Real PSF, real ACE (but no lag between the top and bottom regions), and IntrapixFlat. No InterpixFlat.
+    EPD 340 mm; EFL 4369 mm; Wavelength: 1.0-1.6 um.
+
+  Command:
+    python ./mkimage2.py --pd ./01_params/ --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel11.json --ace ace_001.json --acex ./02_results_ctl4_det10_tel10/aceX.fits --acey ./02_results_ctl4_det10_tel10/aceY.fits --ctl ctl9.json --format platefits --overwrite --od ./02_results_ctl9_det10_tel11/
 
 -----
 
