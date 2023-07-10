@@ -1,0 +1,13 @@
+{
+"Ntot":{
+  "title" : "Zero-mag total detected photon (electron) rate(e-/m^2/sec).",
+  "val" : 4.47263272e+09 },
+"wavelength":{
+  "title" : "Wavelength grid in micron.",
+  "val": [1.10e+0, 1.20e+0, 1.30e+0,  1.40e+0, 1.50e+0, 1.60e+0]},
+"spectrum":{
+  "title" : "Spectal distribution of detected photon (electron) rate (e-/m^2/sec/um).",
+  "val": [
+    2.28576257e+09, 4.33658661e+09, 7.05412716e+09,
+    1.02331024e+10, 1.36071024e+10, 1.69144800e+10]}
+}

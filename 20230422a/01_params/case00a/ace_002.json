@@ -1,0 +1,9 @@
+{
+ "title":"ace001",
+ "model":"PSD = 1/f0/(1+(f/f0)^2)",
+ "note":"S0 = sqrt(PSD), S = S0 + alp * gaussian(sig=S0^bet)",
+ "f0":0.01,
+ "alp":0,
+ "bet":1,
+ "n" :0
+}

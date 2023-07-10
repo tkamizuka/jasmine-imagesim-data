@@ -1,0 +1,9 @@
+{
+"linear": {
+  "drift_velocity": {
+    "title": "Linear drift velocity (detpix/sec).",
+    "val": 0.0015 },
+  "drift_azimuth": {
+    "title": "Linear drift azimuth angle (rad; measured from +x direction in CCW direction).",
+    "val": 0.75 }}
+}

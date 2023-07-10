@@ -1,0 +1,20 @@
+{
+    "0":{
+	"star":"HD XXXXXX",
+	"plate": 0,
+	"star": 0,
+	"vartype":"planet",
+	"dirname":"/home/hirano/work/jasmine/jasmine-imagesim/params/templates/",
+	"varfile":"planet.json"
+    },   
+    "1":{
+	"star":"HD XXXXXY",
+	"plate": 0,
+	"star": 1,
+	"vartype":"planet",
+	"dirname":"/home/hirano/work/jasmine/jasmine-imagesim/params/templates/",
+	"varfile":"planet2.json"
+    }
+}
+ 
+	
