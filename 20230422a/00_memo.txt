@@ -1,0 +1,67 @@
+Test 20230422
+
+This test aims at making data for descope consideration.
+Test conditions are given by Yano-san (see JASMINE-C3-TN-TY-230524).
+
+Used imagesim version: fortest20230422
+
+parameter files: 01_params/case??/*
+
+        wfe  psf           ace intrapix interpix readnoise Idark 
+(basic set)
+case01 none real gauss(275mas)    false     0.01        15    31 
+case02 none real gauss(550mas)    false     0.01        15    31
+case03 none real gauss(275mas)    false     0.01        50    31
+case04 none real gauss(275mas)    false     0.01        15   124
+case05 none real gauss(275mas)    false     0.02        15    31
+
+(additional set)
+case00a
+       old settings to check the code validity (same as a simulation done with an old version code).
+case01_coarse01
+       none real gauss(275mas)    false     0.01        15    31 (spixdim=16, not 32; subpix grid is coarse)
+case01_check01
+       strange settings to check the flat setting validity (very large PSF/No readnoise/No dark).
+case06 none real          none    false     0.01        15    31 (ace is off)
+
+Other parameters
+     M: 5700
+   J-H: 1.0
+   EPD: 360
+  Cobs: 0.35
+   EFL: 4384.6
+  fullwell: 15000x10 (x10 to avoid saturation)
+
+starplate data are copied from 20230310a with the related ipynb file.
+
+output dir: 02_results/
+
+modified mkimage.py is also copied from 20230310a.
+mkimage_bright.py is a modified version that simulates only a bright case.
+
+Case01 --------------------------------
+python ./mkimage.py --pd ./01_params/case01 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case01/
+
+Case02 --------------------------------
+python ./mkimage.py --pd ./01_params/case02 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case02/
+
+Case03 --------------------------------
+python ./mkimage.py --pd ./01_params/case03 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case03/
+
+Case04 --------------------------------
+python ./mkimage.py --pd ./01_params/case04 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case04/
+
+Case05 --------------------------------
+python ./mkimage.py --pd ./01_params/case05 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case05/
+
+Case00a -------------------------------
+python ./mkimage.py --pd ./01_params/case00a --starplate spcsv_20_1968_10_20_12.0.csv --det det10.json --tel tel10.json --ace ace_001.json --ctl ctl5modM.json --format platefits --overwrite --od ./02_results/case00a/
+
+Case06 (default but ace is off) -------
+python ./mkimage.py --pd ./01_params/case06 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case06/
+
+Case01_coarse01 (number of sub-pixels set to 16 instead of 32) ------
+python ./mkimage.py --pd ./01_params/case01_coarse01 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case01_coarse01/
+
+Case01_check01 (check flat) -----------
+python ./mkimage_bright.py --pd ./01_params/case01_check01 --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results/case01_check01/ 
