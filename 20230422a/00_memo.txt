@@ -2,12 +2,14 @@ Test 20230422
 
 This test aims at making data for descope consideration.
 Test conditions are given by Yano-san (see JASMINE-C3-TN-TY-230524).
+The outline and the results of this simulation are summarized in JASMINE-C2-TN-KMZ-20230710.
 
 Used imagesim version: fortest20230422
 
 parameter files: 01_params/case??/*
 
         wfe  psf           ace intrapix interpix readnoise Idark 
+                                                  (e/read) (e/s/pix)
 (basic set)
 case01 none real gauss(275mas)    false     0.01        15    31 
 case02 none real gauss(550mas)    false     0.01        15    31
