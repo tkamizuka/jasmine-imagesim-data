@@ -1,0 +1,36 @@
+Here, we try to perform aizawa-san's simulation.
+
+Current imagesim: master branch (commit 3c2a9f)
+
+cp ~/jasmine-imagesim/bin/galcenimg.py ./
+vi galcenimg.py
+  dirname_params = "/home/kamizuka/jasmine-imagesim/params/galcenimg"
+
+python galcenimg.py
+
+The files were moved to case01.
+
+The required time was not so long.
+The data is not integer data, and the dark current does not seem to be considered.
+
+Check the code.
+- The code does not seem to be different very much from the usual mkimage.py.
+
+Check the params.
+- No ACE, but considering other effects.
+- Nplate is set to 1.
+- dark and gain are set as usual simulation.
+
+Recheck the code.
+- FITS data does not contain dark and noise, but the npz file does...
+
+In case01
+ data = np.load('img_ver1_2_B.npz')
+ pf.writeto('img_ver1_2_B.npz.fits', data=data['arr_0'].T[0])
+
+
+----
+
+In case02, galcenimg.py was modified to make FITS output data including dark and noises.
+In case03, galcenimg.py was modified to handle gaussian ACE.
+

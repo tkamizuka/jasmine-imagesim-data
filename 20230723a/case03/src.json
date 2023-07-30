@@ -1,0 +1,23 @@
+{
+"Hwband":{
+ "title" : "Hw-band definition parameter: Hw = (val)*J + (1-val)*H",
+  "val"  : 0.75 },
+"J-H":{
+ "title"  :"J-H color excess due to the interstellar extinction",
+ "val"   :2 },
+"Rv":{
+  "title" : "Total-to-selective extinction ratio of the interstellar extinction",
+ "val"   :3.1},
+"HwMagmax":{
+  "title" :"Brightest source without saturation",
+  "val" : 9.7},
+"HwMag" : {
+ "title": "Hw magnitude of the source",
+ "val" : 12.7},
+"DiffuseJ" :{
+ "title": "Diffuse photons/sec/m2/arcsec2 at J",
+ "val" : 0},
+"DiffuseH" :{
+ "title": "Diffuse photons/sec/m2/arcsec2 at H",
+ "val" : 0}
+}
