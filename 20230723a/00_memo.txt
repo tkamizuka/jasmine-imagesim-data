@@ -33,4 +33,5 @@ In case01
 
 In case02, galcenimg.py was modified to make FITS output data including dark and noises.
 In case03, galcenimg.py was modified to handle gaussian ACE.
-
+In case04, real ACE simulation is done (galcenimg.py is the same as the one in case03,
+  but parameter files are modified).
