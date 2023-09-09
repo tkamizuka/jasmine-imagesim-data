@@ -35,3 +35,29 @@ In case02, galcenimg.py was modified to make FITS output data including dark and
 In case03, galcenimg.py was modified to handle gaussian ACE.
 In case04, real ACE simulation is done (galcenimg.py is the same as the one in case03,
   but parameter files are modified).
+
+-----
+
+mkdir case05
+cd case05
+
+cp ../case04/galcenimg.py ./galcenimg.py.org
+
+cp galcenimg.py.org mkace.py
+vi mkace.py
+   modified only to calculate ace data and save it as fits files.
+
+cp ../case04/*.json ./
+   make the same settings as case04
+
+python mkace.py
+   make the ace data.
+
+cp ctl.json ctl2.json
+vi ctl2.json
+   ace mode modified to real_no_lag
+
+cp galcenimg.py.org galcenimg2.py
+vi galcenimg2.py
+   modified to handle the real_no_lag mode.
+   modified to use ctl2.json instead of ctl.json
