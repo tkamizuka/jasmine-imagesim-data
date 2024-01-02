@@ -1,0 +1,41 @@
+Here we examine the effect of the gain setting on the position determination accuracy.
+
+The current version of the imagesim is develop branch commit 61d2f2a.
+
+Copy the setting files from template.
+
+cp ~/jasmine-imagesim/params/templates/ ./01_params -rf
+
+Check the params.
+  ctl.json:
+    wfe: dummy
+    psf: real
+    ace: none -> gauss
+    flat_interpix: true
+    flat_intrapix: true -> false
+    M: 5700
+    fN: 520
+    PixNum: 9
+    dx: 0
+    dy:0
+    GaussPSFfwhm: (No need)
+    WFEcontrol: (No need)
+    ACEcontrol:
+      acex_std: 0.275 -> 0.300
+      acey_std: 0.275 -> 0.300
+      
+  det.json:
+    readnoise: 15
+    Idark: 31.0 -> 33.0
+    interpix/stddev: 0.01
+    gain: 3.3 -> 1.0
+
+  tel.json:
+    EPD: 360
+    Cobs: 0.35
+    Spider/thickness: 5
+    EFL: 4384.6 -> 4370.4
+
+  Modification was based on the latest parameter setting
+  written on the wiki page (Oct. 14, 2023)
+

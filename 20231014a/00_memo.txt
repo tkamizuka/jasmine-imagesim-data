@@ -1,0 +1,67 @@
+Here we examine the effect of the gain setting on the position determination accuracy.
+
+The current version of the imagesim is develop branch commit 61d2f2a. Use this version.
+
+Setting files are copied from the template directory.
+  cp ~/jasmine-imagesim/params/templates/ ./01_params -rf
+
+Check and modify the params.
+  ctl.json:
+    wfe: dummy
+    psf: real
+    ace: none -> gauss
+    flat_interpix: true
+    flat_intrapix: true -> false
+    M: 5700
+    fN: 520
+    PixNum: 9
+    dx: 0
+    dy:0
+    dtace: 15e-5 -> 1
+    tace' 160
+    GaussPSFfwhm: (No need)
+    WFEcontrol: (No need)
+    ACEcontrol:
+      acex_std: 0.275 -> 0.300
+      acey_std: 0.275 -> 0.300
+      
+  det.json:
+    readnoise: 15
+    Idark: 31.0 -> 33.0
+    interpix/stddev: 0.01
+    gain: 3.3 -> 1.0
+
+  tel.json:
+    EPD: 360
+    Cobs: 0.35
+    Spider/thickness: 5
+    EFL: 4384.6 -> 4370.4
+
+  Modification was based on the latest parameter setting
+  written on the wiki page (Version: Oct. 04, 2023)
+
+starplate data copied from 20230422a.
+  cp ../20230422a/01_params/case01/spcsv_20_1968_1*.csv 01_params/
+
+output dir is 02_results/
+
+Modified mkimage.py copied from 20230422a.
+  cp ../20230422a/mkimage.py ./
+
+Run the simulation
+  python ./mkimage.py --pd ./01_params --starplate spcsv_20_1968_10_20_12.0.csv --det det.json --tel tel.json --ace ace_001.json --ctl ctl.json --format platefits --overwrite --od ./02_results
+--> image data with the gain setting of 1 are created (electron instead of adu).
+
+Then, adc calculation applied (for details, see prg01.py).
+  python prg01.py
+  
+Then, stacked data created (for details, see prg02.py).
+  python prg02.py
+  
+Analyses are done in 03_converted and 04_stacked.
+  See analysis01.ipynb in each directory.
+  
+prg03.py makes cross-section of a PSF.
+--> prg03.pdf is the output plot.
+
+Other files are used for some trial analses.
