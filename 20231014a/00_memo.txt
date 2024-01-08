@@ -1,5 +1,44 @@
-Here we examine the effect of the gain setting on the position determination accuracy.
+----- Summary -----
+The effect of the ADC resolution on the
+position-determination accuracy is examined.
+The results show that the accuracy degrades
+at 12 bit or lower and that the reduction of
+the ADC resolution to 13 bit is acceptable. 
+Improvement of the accuracy by stacking is
+also examined, but the improvement is found
+to have a limit. These results are described
+in the report JASMINE-C2-TN-KMZ-20240102-01-
+ADCresolution. After making the report,
+the improvement limit seems to be due to
+the bad ePSF created by faint objects
+(see 04_stacked/analysis02 and 03).
 
+----- File summary -----
+  00_memo.txt: This file.
+  01_params: Parameter files for imagesim.
+  02_results: FITS files created by imagesim (gain set to 1 e/adu).
+  03_converted: FITS files converted to each gain setting (ADC res.: 10, 11, ..., 16 bit).
+    analysis01.ipynb: analysis file (gzipped)
+    PosAccVsMag.pdf: Result plot
+  04_stacked: Stacked files.
+    analysis01.ipynb: analysis file.
+    --> pdf files are created by this file.
+        accuracy improvement found to be limited by something unknown.
+    analysis02.ipynb: analysis with 10-mag ePSF instead of individual-mag ePSF.
+    --> By using 10-mag ePSF, accuracy found to be improved more.
+    analysis03.ipynb: ePSF check.
+    --> ePSF from 14.5-mag obj found to be strange. 
+  05_flattened: Flattened files (but not successful).
+  mkimage.py: python script used to make files in 02_results.
+  prg01.py: python script used to make files in 03_converted.
+  prg02.py: python script used to make files in 04_stacked.
+  prg03.py: python script used to make cross-section plots of PSF.
+            -> prg03.pdf created by prg03.py
+  prg03-lin.py: almost the same as prg03.py. Used for checking.
+  prg032.py: almost the same as prg03.py. Used for checking.
+  prg04.py: python script used to make files in 05_flattened (not successful).
+
+----- Log -----
 The current version of the imagesim is develop branch commit 61d2f2a. Use this version.
 
 Setting files are copied from the template directory.
@@ -64,4 +103,7 @@ Analyses are done in 03_converted and 04_stacked.
 prg03.py makes cross-section of a PSF.
 --> prg03.pdf is the output plot.
 
-Other files are used for some trial analses.
+Accuracy improvement limit is investigated in
+04_stacked/analysis0[23].ipynb
+--> If 10-mag ePSF used, accuracy improves.
+--> 14.5-mag ePSF is bad. This seems to be the cause of the limit.
